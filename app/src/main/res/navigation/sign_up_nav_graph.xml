@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_up_nav_graph.xml"
+    app:startDestination="@id/first_name_fragment">
+
+    //FirstNameFragment
+    <fragment
+        android:id="@+id/first_name_fragment"
+        android:name="com.example.navigation_practice_jan19_trint01.FirstNameFragment"
+        tools:layout="@layout/fragment_first_name">
+        <action
+            android:id="@+id/action_first_name_fragment_to_password_fragment"
+            app:destination="@id/password_fragment">
+            <argument
+                android:name="first_name"
+                app:argType="string">
+            </argument>
+            <argument
+                android:name="last_name"
+                app:argType="string">
+            </argument>
+        </action>
+    </fragment>
+
+    //PasswordFragment
+    <fragment
+        android:id="@+id/password_fragment"
+        android:name="com.example.navigation_practice_jan19_trint01.PasswordFragment"
+        app:startDestination="@id/action_password_fragment_to_sign_up_complete_fragment"
+        tools:layout="@layout/fragment_password">
+
+        //old args
+        <argument
+            android:name="first_name"
+            app:argType="string"/>
+        <argument
+            android:name="last_name"
+            app:argType="string"/>
+
+        <action
+            android:id="@+id/action_password_fragment_to_sign_up_complete_fragment"
+            app:destination="@id/sign_up_complete_fragment" >
+
+            //new args
+            <argument
+                android:name="first_name"
+                app:argType="string"/>
+            <argument
+                android:name="last_name"
+                app:argType="string"/>
+            <argument
+                android:name="password"
+                app:argType="string"/>
+
+        </action>
+    </fragment>
+
+    //SignUpCompleteFragment
+    <fragment
+        android:id="@+id/sign_up_complete_fragment"
+        android:name="com.example.navigation_practice_jan19_trint01.SignUpCompleteFragment"
+        tools:layout="@layout/fragment_sign_up_complete">
+
+        //final args
+        <argument
+            android:name="first_name"
+            app:argType="string"
+            android:defaultValue="No First Name Input"/>
+        <argument
+            android:name="last_name"
+            app:argType="string"
+            android:defaultValue="No Last Name Input"/>
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue="No Password Input"/>
+        <action
+            android:id="@+id/action_sign_up_complete_fragment_to_first_name_fragment"
+            app:destination="@id/first_name_fragment" />
+
+    </fragment>
+</navigation>

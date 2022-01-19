@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">navigation_practice_jan19_trint01</string>
+    <string name="enter_your_name">Enter your name!</string>
+    <string name="enter_name">Enter Your Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="next">Next</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="password">Password</string>
+</resources>
